@@ -1,0 +1,20 @@
+{
+  "name": "@yuchang/render",
+  "version": "1.0.0",
+  "description": "代码喧染库",
+  "main": "es/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yunfei",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
+  "yuchang":{
+    "type":"lib",
+    "devLinks":[
+      "@yuchang/**"
+    ]
+  }
+}
