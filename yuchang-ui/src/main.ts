@@ -1,6 +1,11 @@
+/*
+ * @Descripttion: 
+ * @Author: yunfei
+ * @Date: 2023-01-16 16:27:48
+ */
 import { createApp } from 'vue'
+import './style.css'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(router).mount('#app')

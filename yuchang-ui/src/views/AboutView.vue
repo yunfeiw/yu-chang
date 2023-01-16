@@ -1,5 +1,18 @@
+<!--
+ * @Descripttion: 
+ * @Author: yunfei
+ * @Date: 2023-01-16 17:27:30
+-->
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    about
 </template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
