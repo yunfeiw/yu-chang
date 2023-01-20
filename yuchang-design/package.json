@@ -1,8 +1,9 @@
 {
-    "name": "view-ui-plus",
+    "name": "@yuchang/design",
     "version": "1.3.1",
     "title": "ViewUIPlus",
     "description": "A high quality UI components Library with Vue.js 3",
+    "homepage": "http://www.iviewui.com",
     "keywords": [
         "iview",
         "vue",
@@ -29,8 +30,15 @@
         "build:lang": "vite build --config build/vite.lang.config.js",
         "lint": "vue-cli-service lint --fix"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/view-design/ViewUIPlus"
+    },
     "author": "Aresn",
     "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/view-design/ViewUIPlus/issues"
+    },
     "dependencies": {
         "async-validator": "^3.3.0",
         "countup.js": "^1.9.3",
@@ -81,7 +89,7 @@
         "sinon-chai": "^3.3.0",
         "style-loader": "^0.20.2",
         "tslint": "^5.14.0",
-        "typescript": "^3.3.4000",
+        "typescript": "^4.9.4",
         "uglifyjs-webpack-plugin": "^1.3.0",
         "url-loader": "^1.1.2",
         "vite": "^2.6.4",
