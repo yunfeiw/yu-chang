@@ -6,6 +6,8 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import * as a from '@yuchang/types'
+console.log(a)
 import ViewUIPlus from '@yuchang/design'
 import "@yuchang/design/dist/styles/viewuiplus.css"
 

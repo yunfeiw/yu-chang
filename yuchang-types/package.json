@@ -1,8 +1,9 @@
 {
-  "name": "yuchang-types",
+  "name": "@yuchang/types",
   "version": "1.0.0",
   "description": "类型库",
-  "main": "index.js",
+  "main": "./src/index.ts",
+  "typings": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
