@@ -4,11 +4,14 @@
  * @Date: 2023-01-20 18:51:43
  */
 import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
-import * as a from '@yuchang/types'
-console.log(a)
+
+// style
+import "./assets/main.less"
+// ui
 import ViewUIPlus from '@yuchang/design'
 import "@yuchang/design/dist/styles/viewuiplus.css"
-
-createApp(App).use(ViewUIPlus).mount('#app')
+// route
+import router from './router'
+// 入口
+import App from './App.vue'
+createApp(App).use(router).use(ViewUIPlus).mount('#app')
