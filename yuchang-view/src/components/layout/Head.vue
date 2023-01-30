@@ -4,7 +4,6 @@
  * @Date: 2023-01-29 10:03:47
 -->
 <script setup>
-import { defineProps } from "vue";
 const { title } = defineProps({
   title: String,
 });
