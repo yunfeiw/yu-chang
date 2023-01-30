@@ -9,7 +9,7 @@ import { ref } from "vue";
 const arr = ref(["input", "checkbox", "div", "img"]);
 // 组件
 import ItemList from "../ItemList";
-import Panel from "../Panel/panel.tsx";
+import Panel from "../Panel";
 </script>
 <template>
   <div class="ui_editor">
@@ -21,5 +21,5 @@ import Panel from "../Panel/panel.tsx";
 </template>
 
 <style lang="less">
-@import "./index.less";
+  @import "./index.less";
 </style>

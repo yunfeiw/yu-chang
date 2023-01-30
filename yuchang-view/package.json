@@ -27,7 +27,8 @@
     "type": "app",
     "devLinks": [
       "@yuchang/design",
-      "@yuchang/types"
+      "@yuchang/types",
+      "@yuchang/utils"
     ]
   }
 }
