@@ -1,5 +1,5 @@
 {
-  "name": "yuchang-view",
+  "name": "@yuchang/view",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -28,7 +28,9 @@
     "devLinks": [
       "@yuchang/design",
       "@yuchang/types",
-      "@yuchang/utils"
+      "@yuchang/utils",
+      "@yuchang/metas",
+      "@yuchang/render"
     ]
   }
 }

@@ -1,19 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es6",                          
-    "module" : "commonjs", 
-    "lib": ["es6", "dom"],                     
+    "target": "ESNext",
+    "module": "ESNext",
     "allowJs": false,
-    "outDir": "es",                          
+    "outDir": "es",
     "rootDir": "src",
-    "strict": true,         
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "downlevelIteration": true,
-    "moduleResolution": "node",
-    "baseUrl": "."
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "Node"
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }

@@ -50,6 +50,7 @@ const { title } = defineProps({
     height: 100%;
     font-size: 18px;
     font-weight: 900;
+    overflow: hidden;
     .icon-tanx {
       float: left;
       padding-left: 10px;

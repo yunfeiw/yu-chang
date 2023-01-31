@@ -2,11 +2,20 @@
   "name": "@yuchang/types",
   "version": "1.0.0",
   "description": "类型库",
-  "main": "./src/index.ts",
-  "typings": "./src/index.ts",
+  "main": "./src/index.js",
+  "typings": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "yunfei",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "immutable": "^4.2.2"
+  },
+  "@yuchang": {
+    "type": "lib",
+    "devLinks": [
+      "@yuchang/utils"
+    ]
+  }
 }

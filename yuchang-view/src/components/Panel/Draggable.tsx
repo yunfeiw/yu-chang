@@ -1,5 +1,5 @@
 /*
- * @Descripttion: 
+ * @Descripttion: 包装
  * @Author: yunfei
  * @Date: 2023-01-30 20:16:54
  */
@@ -7,27 +7,23 @@ import type { VNode, PropType } from 'vue';
 import { defineComponent, ref } from 'vue'
 import { deepMerge } from '@yuchang/utils'
 
-/* 
- * @description draggable 拖拽 handle 
- * @returns 
-*/
 
 function useDrag({ onDragend, onDragstart }: {
-    onDragstart?: () => void,
-    onDragend?: (vec: [number, number]) => void
+    onDragstart?: (e: DragEvent) => void,
+    onDragend?: (e: DragEvent) => void
 }) {
 
 
     const handles = {
         onDragstart(e: DragEvent) {
-            onDragstart && onDragstart()
+            onDragstart && onDragstart(e)
         },
         onDrag(e: DragEvent) {
         },
         // onDragend(e: DragEvent) {
         // }
         onDragend: (e: DragEvent) => {
-            onDragend && onDragend([0, 0])
+            onDragend && onDragend(e)
         }
     }
     // 返回
@@ -50,10 +46,10 @@ export const Draggable = defineComponent({
     props: {
 
         onDragstart: {
-            type: Function as PropType<() => void>
+            type: Function as PropType<(vec: DragEvent) => void>
         },
         onDragend: {
-            type: Function as PropType<(vec: [number, number]) => void>
+            type: Function as PropType<(vec: DragEvent) => void>
         }
 
     },
