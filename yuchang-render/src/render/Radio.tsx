@@ -1,16 +1,18 @@
 /*
- * @Descripttion: 按钮
+ * @Descripttion: 单选
  * @Author: yunfei
  * @Date: 2023-01-31 15:52:49
  */
-import { Radio } from '@yuchang/design'
+import { Radio, RadioGroup } from '@yuchang/design'
 type nodeType = {
     text: "",
     props: any,
 }
 
 export default (node: nodeType, ref: any) => {
-    const { text } = node;
-    let rd = ref(false)
-    return (<Radio on-change={() => { console.log(11)}} model-value={rd.value}>{text}</Radio>)
+    return (<RadioGroup >
+        <Radio label="1"> <span>1</span>  </Radio>
+        <Radio label="2"> <span>2</span>  </Radio>
+        <Radio label="3"> <span>3</span>  </Radio>
+    </RadioGroup>)
 }

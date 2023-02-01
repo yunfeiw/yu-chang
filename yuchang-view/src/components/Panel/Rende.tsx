@@ -3,11 +3,11 @@
  * @Author: yunfei
  * @Date: 2023-01-30 20:06:45
  */
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 // import { Button,Radio } from '@yuchang/design'
 import { renderItem } from '@yuchang/render'
 // import { Node } from '@yuchang/types'
-// import { Draggable } from './Draggable'
+import { Draggable } from './Draggable'
 
 
 // type ychangComponent = {
@@ -15,9 +15,7 @@ import { renderItem } from '@yuchang/render'
 // }
 
 export const Render = (node: any) => {
-
     console.log('Render')
-
     // 更新组件
     if (node.length == 0) {
         return <div>星星</div>
@@ -35,9 +33,10 @@ function renderMiddleProcess(node: any) {
         case "button":
         case "input":
         case "radio":
-        case "checkbox":
+        case "select":
+        case "table":
+        case "form":
             return ItemRenderForDraggable(node)
-        // return <ItemRenderForDraggable node={node} />
         default:
             throw new Error(`unsupported node type:${node.ycelename}`)
     }
@@ -54,20 +53,20 @@ function renderMiddleProcess(node: any) {
 
 const ItemRenderForDraggable = (node: any) => {
     console.log('ItemRenderForDraggable')
-    return renderItem(node,ref)
+    // return renderItem(node, { ref, reactive })
 
-    // return (
-    //     <Draggable
-    //         onDragstart={(e) => {
-    //             console.log(e)
-    //         }}
-    //         onDragend={(e) => {
-    //             console.log(e)
-    //         }}
-    //     >
-    //         {renderItem(node)}
-    //     </Draggable>
-    // )
+    return (
+        <Draggable
+            onDragstart={(e) => {
+                console.log('chidren onDragstart',e)
+            }}
+            onDragend={(e) => {
+                console.log('chidren onDragend',e)
+            }}
+        >
+            {renderItem(node, { ref, reactive })}
+        </Draggable>
+    )
 }
 
 // const Root = ({ node }: ychangComponent) => {

@@ -9,7 +9,16 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),vueJsx()],
+
+  plugins: [vue(), vueJsx()],
+
+  // 应对文件加载
+  server: {
+    fs: {
+      strict: false
+    }
+  },
+
   optimizeDeps: {
     include: ['@yuchang/design']
   }

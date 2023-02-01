@@ -4,16 +4,19 @@
  * @Date: 2023-01-31 11:25:19
  */
 export const button = {
+    
+    text: "按钮",
 
-    type: "primary",
+    props: {
 
-    ghost: false,
+        type: "primary",
 
-    size: 'default',
+        ghost: false,
 
-    shape: "String",
+        size: 'default',
 
-    long: false,
+        long: false,
 
-    clearable: false
+        clearable: false
+    }
 }

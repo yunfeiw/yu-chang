@@ -17,7 +17,8 @@
     "type": "lib",
     "devLinks": [
       "@yuchang/design",
-      "@yuchang/utils"
+      "@yuchang/utils",
+      "@yuchang/types"
     ]
   }
 }

@@ -33,8 +33,8 @@ export const FORMS = [
         type: "radio",
         default: "",
     }, {
-        title: "checkbox",
-        type: "checkbox",
+        title: "select",
+        type: "select",
         default: "",
     }, {
         title: "table",

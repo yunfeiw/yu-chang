@@ -5,5 +5,7 @@
  */
 import { button } from './Button'
 import { input } from './Input'
-
-export default { button, input }
+import { select } from './Select'
+import { radio } from './Radio'
+import { table } from './Table'
+export default { button, input, select, radio, table }

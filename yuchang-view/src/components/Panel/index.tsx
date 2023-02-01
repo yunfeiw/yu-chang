@@ -3,6 +3,7 @@
  * @Author: yunfei
  * @Date: 2023-01-30 18:24:09
  */
+
 import { defineComponent, ref, Ref } from 'vue'
 import metasTypes from '@yuchang/metas'
 import { Render } from './Rende';
@@ -20,22 +21,29 @@ export default defineComponent({
                 }}
                 onDrop={(e) => {
                     e.preventDefault();
-                    let drapname = e.dataTransfer?.getData('drap-name');
-                    console.log('metasTypes', metasTypes[drapname])
                     // 读取类型
+                    let drapname = e.dataTransfer?.getData('drap-name');
+                    console.log('metasTypes', drapname)
+
+                    // 拖拽（自己）
+                    if(drapname==''){
+                        
+                        console.warn('开始移动',)
+                        return
+                    }
+                    // 拖拽（菜单栏）
                     data.value = [
                         ...data.value,
                         {
-                            text: "按钮",
                             ycelename: drapname,
+                            ...metasTypes[drapname as keyof typeof metasTypes]
                         }
                     ]
                 }}
 
             >
                 {Render(data.value)}
-                {/* <Render node={data.value} /> */}
-            </div>
+            </div >
         };
     }
 })

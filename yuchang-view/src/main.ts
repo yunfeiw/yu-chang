@@ -10,6 +10,7 @@ import "./assets/main.less"
 // ui
 import ViewUIPlus from '@yuchang/design'
 import "@yuchang/design/dist/styles/viewuiplus.css"
+
 // route
 import router from './router'
 // 入口

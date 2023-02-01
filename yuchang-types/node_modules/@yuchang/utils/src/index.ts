@@ -6,3 +6,4 @@
 
 export * from './deepMerge'
 export * from './Emiter'
+export * from './uuid'
