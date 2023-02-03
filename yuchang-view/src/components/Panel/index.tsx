@@ -6,6 +6,7 @@
 
 import { defineComponent, ref, Ref } from 'vue'
 import metasTypes from '@yuchang/metas'
+import { uuid } from '@yuchang/utils'
 import { Render } from './Rende';
 
 
@@ -26,8 +27,8 @@ export default defineComponent({
                     console.log('metasTypes', drapname)
 
                     // 拖拽（自己）
-                    if(drapname==''){
-                        
+                    if (drapname == '') {
+
                         console.warn('开始移动',)
                         return
                     }
@@ -35,6 +36,7 @@ export default defineComponent({
                     data.value = [
                         ...data.value,
                         {
+                            nodeId: uuid(),
                             ycelename: drapname,
                             ...metasTypes[drapname as keyof typeof metasTypes]
                         }

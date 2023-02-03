@@ -7,10 +7,11 @@ import { Button } from '@yuchang/design'
 
 type nodeType = {
     text: "",
+    nodeId: string,
     props: any,
 }
 
 export default (node: nodeType) => {
-    const { text, props } = node;
-    return (<Button {...props} >{text}</Button>)
+    const { text, nodeId, props } = node;
+    return (<Button id={nodeId} {...props} >{text}</Button>)
 }
