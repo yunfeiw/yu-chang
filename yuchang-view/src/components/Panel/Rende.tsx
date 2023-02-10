@@ -5,7 +5,7 @@
  */
 import { ref, reactive } from 'vue'
 // import { Button,Radio } from '@yuchang/design'
-import { renderItem } from '@yuchang/render'
+import { RenderItem } from '@yuchang/render'
 // import { Node } from '@yuchang/types'
 import { Draggable } from './Draggable'
 
@@ -26,8 +26,8 @@ export const Render = (node: any) => {
 }
 
 function renderMiddleProcess(node: any) {
-    console.log('renderMiddleProcess', node.ycelename)
-    switch (node.ycelename) {
+    // console.log('renderMiddleProcess', node.ycelename)
+    switch (node['drap-name']) {
         case "root":
         // return Root({ node });
         case "button":
@@ -38,7 +38,7 @@ function renderMiddleProcess(node: any) {
         case "form":
             return ItemRenderForDraggable(node)
         default:
-            throw new Error(`unsupported node type:${node.ycelename}`)
+            throw new Error(`unsupported node type:${node['drap-name']}`)
     }
 
 }
@@ -52,19 +52,19 @@ function renderMiddleProcess(node: any) {
  */
 
 const ItemRenderForDraggable = (node: any) => {
-    console.log('ItemRenderForDraggable')
-    // return renderItem(node, { ref, reactive })
 
     return (
         <Draggable
             onDragstart={(e) => {
-                console.log('chidren onDragstart',e)
+                console.log('(づ￣3￣)づ╭❤～')
+                let ev = e.target as Element;
+                e.dataTransfer!.setData("drap-id", ev.getAttribute('drap-id')!);
             }}
             onDragend={(e) => {
-                console.log('chidren onDragend',e)
+                // console.log('chidren onDragend', e)
             }}
         >
-            {renderItem(node, { ref, reactive })}
+            <RenderItem node={node} ><div>你好</div></RenderItem>
         </Draggable>
     )
 }

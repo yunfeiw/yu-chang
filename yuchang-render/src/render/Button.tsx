@@ -5,13 +5,17 @@
  */
 import { Button } from '@yuchang/design'
 
-type nodeType = {
-    text: "",
-    nodeId: string,
-    props: any,
-}
+// type nodeType = {
+//     text: "",
+//     nodeId: string,
+//     props: any,
+// }
 
-export default (node: nodeType) => {
-    const { text, nodeId, props } = node;
-    return (<Button id={nodeId} {...props} >{text}</Button>)
+export default (props: any, ctx?: any) => {
+
+    const { node } = props;
+
+    console.log('button props', node)
+
+    return (<Button drag-type={node['drag-type']} drap-id={node.nodeId} {...node.props} >{node.text}</Button>)
 }

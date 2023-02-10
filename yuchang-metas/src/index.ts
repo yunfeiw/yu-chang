@@ -8,4 +8,5 @@ import { input } from './Input'
 import { select } from './Select'
 import { radio } from './Radio'
 import { table } from './Table'
-export default { button, input, select, radio, table }
+import { form } from './Form'
+export default { button, input, select, radio, table, form }

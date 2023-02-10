@@ -4,14 +4,18 @@
  * @Date: 2023-02-01 10:18:52
  */
 
-import { Select, Option,Icon} from '@yuchang/design'
-type nodeType = {
-    text: "",
-    props: any,
-}
+import { Select, Option } from '@yuchang/design'
 
-export default (node: nodeType, ref: any) => {
-    let model = ref('1');
+// type nodeType = {
+//     text: "",
+//     nodeId: string,
+//     props: any,
+// }
+
+export default (props: any, ctx?: any) => {
+
+    const { node } = props;
+
     let arr = [
         {
             value: '1',
@@ -26,11 +30,11 @@ export default (node: nodeType, ref: any) => {
             label: 'Sydney'
         },
     ]
-    return (<Select style="width:200px">
+    return (<Select drag-type={node['drag-type']} drap-id={node.nodeId} style="width:200px">
         {
-            arr.map(e=>{
-                return(<Option key={e.value} value={e.value}>{e.label}</Option>)
+            arr.map(e => {
+                return (<Option key={e.value} value={e.value}>{e.label}</Option>)
             })
         }
-        </Select>)
+    </Select>)
 }

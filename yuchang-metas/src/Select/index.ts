@@ -4,7 +4,11 @@
  * @Date: 2023-01-31 11:41:47
  */
 
+import { drapElementType } from '@yuchang/types'
+
 export const select = {
+
+    "drag-type": drapElementType.block,
 
     props: {
 
@@ -18,6 +22,7 @@ export const select = {
 
         clearable: false,
 
-        transfer: false
+        transfer: false,
+
     }
 }

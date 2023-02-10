@@ -1,12 +1,22 @@
+/*
+ * @Descripttion: 
+ * @Author: yunfei
+ * @Date: 2023-02-01 09:57:04
+ */
 
 import { Table } from '@yuchang/design'
-type nodeType = {
-    text: "",
-    props: any,
-}
 
-export default (node: nodeType, ref: any) => {
-    let columns = ref([
+// type nodeType = {
+//     text: "",
+//     nodeId: string,
+//     props: any,
+// }
+
+export default (props: any, ctx?: any) => {
+
+    const { node } = props;
+
+    let columns = [
         {
             type: 'selection',
             width: 60,
@@ -24,8 +34,8 @@ export default (node: nodeType, ref: any) => {
             title: '地区',
             key: 'address'
         }
-    ]);
-    let data = ref([
+    ];
+    let data = [
         {
             name: '小明',
             age: 18,
@@ -38,7 +48,7 @@ export default (node: nodeType, ref: any) => {
             address: '上海',
             date: '2016-10-01'
         },
-    ])
+    ]
 
-    return (<Table size='small' border ref="selection" columns={columns.value} data={data.value}></Table>)
+    return (<Table drag-type={node['drag-type']} drap-id={node.nodeId} size='small' border ref="selection" columns={columns} data={data}></Table>)
 }

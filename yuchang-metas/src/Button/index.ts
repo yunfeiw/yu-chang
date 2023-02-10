@@ -3,8 +3,12 @@
  * @Author: yunfei
  * @Date: 2023-01-31 11:25:19
  */
+import { drapElementType } from '@yuchang/types'
+
 export const button = {
-    
+
+    "drag-type": drapElementType.block,
+
     text: "按钮",
 
     props: {
@@ -15,8 +19,8 @@ export const button = {
 
         size: 'default',
 
-        long: false,
+        long: false
 
-        clearable: false
+        // clearable: false
     }
 }

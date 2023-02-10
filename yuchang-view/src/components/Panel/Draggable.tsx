@@ -36,8 +36,9 @@ function useDrag({ onDragend, onDragstart }: {
 * @param props 
 */
 function addPropsToVNode(vNode: VNode, props: Record<string, any>): VNode {
-    // 深度的拷贝
+    // // 深度的拷贝
     vNode.props = deepMerge(vNode.props, props);
+    // vNode = deepMerge(vNode, props);
     return vNode;
 }
 
@@ -68,13 +69,12 @@ export const Draggable = defineComponent({
         });
 
         return () => {
-
             let vNode: VNode = ctx.slots.default!()[0];
             vNode = addPropsToVNode(vNode, {
                 ...handles,
-                Draggable: true,
-
+                draggable: true,
             });
+            console.log('封装 vNode', vNode)
             return vNode
         }
 

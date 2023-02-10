@@ -14,26 +14,25 @@ import SelectRender from './render/Select'
 import FormRender from './render/Form'
 
 
-function renderItem(node: any, ctxs:ctx) {
+function RenderItem(props: any, ctx: any) {
 
-    switch (node.ycelename) {
+    switch (props.node['drap-name']) {
         case "button":
-            return ButtonRender(node)
+            return ButtonRender(props, ctx)
         case "input":
-            return InputRender(node)
+            return InputRender(props, ctx)
         case "radio":
-            return RadioRender(node, ctxs)
+            return RadioRender(props, ctx)
         case "table":
-            return TableRender(node, ctxs)
+            return TableRender(props, ctx)
         case "select":
-            return SelectRender(node, ctxs)
+            return SelectRender(props, ctx)
         case "form":
-            return FormRender(node, ctxs)
+            return FormRender(props, ctx)
         default:
-            throw new Error(`unsupported 【render】 node tyoe: ${node.type}`)
+            throw new Error(`unsupported 【render】 node tyoe: ${props.node.type}`)
     }
-
 
 }
 
-export { renderItem }
+export { RenderItem }
