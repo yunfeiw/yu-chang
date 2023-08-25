@@ -9,17 +9,17 @@ import metasTypes from '@yuchang/metas'
 import { uuid } from '@yuchang/utils'
 import { Render } from './Rende';
 
+type DRAP_TARGET_INFO = {
+    id: string,
+    i: number
+}
 
 // 类型查找 (容器、块)
 function findDrop(e: any) {
     if (e.getAttribute("drag-type") == '0') {
         return e
     }
-    while (
-        e &&
-        e.getAttribute("drag-type") != 1 &&
-        e.getAttribute("drag-type") != 2
-    ) {
+    while (e && !e.getAttribute("draggable")) {
         e = e.parentNode;
     }
     return e;
@@ -27,9 +27,7 @@ function findDrop(e: any) {
 export default defineComponent({
     props: {},
     setup() {
-        let list = ref([]) as Ref;
         let data = ref([]) as Ref;
-        let maps = ref({}) as Ref;
 
         return () => {
             return <div drag-type='0' class='panel'
@@ -38,51 +36,34 @@ export default defineComponent({
                 }}
                 onDrop={(e) => {
                     e.preventDefault();
-                    // 读取类型
+                    // element type
                     let drapname = e.dataTransfer?.getData('drap-name');
-                    console.log('metasTypes', drapname)
 
-                    // 拖拽（自己）
+                    // element inter drap
                     if (drapname == '') {
-                        let drapID = e.dataTransfer?.getData('drap-id');
-                        console.log('开始移动', drapID)
-
-                        // 更新data
+                        // 查找拖拽版（元素）
                         let realTarget = findDrop(e.target);
-                        // 块
-                        let { width, height } = realTarget.getBoundingClientRect();
+
+                        // target item && drap item
+                        let { i } = JSON.parse(e.dataTransfer?.getData('drap-data')!) as DRAP_TARGET_INFO;
+                        let _i = realTarget.getAttribute('drap-index');
+                        let newdata = [...data.value]
+                        let item = newdata.splice(i, 1)[0]
+
+                        // position
+                        let { width } = realTarget.getBoundingClientRect();
                         let { offsetLeft } = realTarget;
                         offsetLeft = e.clientX - offsetLeft
-                        // 移动 判定
-
-
-                        let upID = realTarget.getAttribute('drap-id');
-
-                        let listBefore = list.value.filter((e: String) => e != drapID);
-                        let dataBefore = data.value.filter((e: { nodeId: string }) => e.nodeId != drapID);
-
-                        let _idx = listBefore.indexOf(upID);
-
 
                         if (offsetLeft / width < 0.5) {
-                            // 左侧
-                            console.log("左", _idx);
-
-                            listBefore.splice(_idx, 0, drapID);
-                            dataBefore.splice(_idx, 0, maps.value[drapID!]);
-
-
+                            console.log('左')
+                            newdata.splice(_i - 1, 0, item)
                         } else {
-                            // 右侧
-                            console.log("右", _idx);
-
-                            listBefore.splice((_idx + 1), 0, drapID);
-                            dataBefore.splice((_idx + 1), 0, maps.value[drapID!]);
-
+                            console.log('右')
+                            newdata.splice(_i, 0, item)
                         }
-
-                        list.value = listBefore
-                        data.value = dataBefore
+                        console.log('newdata', newdata)
+                        data.value = newdata;
 
                         return
                     }
@@ -94,12 +75,6 @@ export default defineComponent({
                         ...metasTypes[drapname as keyof typeof metasTypes]
                     }
 
-                    maps.value[ID] = newItem;
-
-                    list.value = [
-                        ...list.value,
-                        ID
-                    ]
                     data.value = [
                         ...data.value,
                         newItem

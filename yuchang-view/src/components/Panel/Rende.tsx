@@ -20,12 +20,12 @@ export const Render = (node: any) => {
     if (node.length == 0) {
         return <div>星星</div>
     }
-    return node.map((e: any) => {
-        return renderMiddleProcess(e);
+    return node.map((e: any, i: number) => {
+        return renderMiddleProcess(e, i);
     })
 }
 
-function renderMiddleProcess(node: any) {
+function renderMiddleProcess(node: any, i: number) {
     // console.log('renderMiddleProcess', node.ycelename)
     switch (node['drap-name']) {
         case "root":
@@ -36,7 +36,7 @@ function renderMiddleProcess(node: any) {
         case "select":
         case "table":
         case "form":
-            return ItemRenderForDraggable(node)
+            return ItemRenderForDraggable(node, i)
         default:
             throw new Error(`unsupported node type:${node['drap-name']}`)
     }
@@ -51,20 +51,20 @@ function renderMiddleProcess(node: any) {
  * @returns 
  */
 
-const ItemRenderForDraggable = (node: any) => {
+const ItemRenderForDraggable = (node: any, i: number) => {
 
     return (
         <Draggable
             onDragstart={(e) => {
-                console.log('(づ￣3￣)づ╭❤～')
                 let ev = e.target as Element;
-                e.dataTransfer!.setData("drap-id", ev.getAttribute('drap-id')!);
+                e.dataTransfer!.setData("drap-data", JSON.stringify({ id: ev.getAttribute('drap-id')!, i }));
             }}
             onDragend={(e) => {
-                // console.log('chidren onDragend', e)
             }}
         >
-            <RenderItem node={node} ><div>你好</div></RenderItem>
+            <div drap-index={i}>
+                <RenderItem node={node} ><div>你好</div></RenderItem>
+            </div>
         </Draggable>
     )
 }

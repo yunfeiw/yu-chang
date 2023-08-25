@@ -11,8 +11,8 @@ export default (props: any, ctx?: any) => {
     const { node } = props
 
     return (
-        <FormItem drag-type={node['drag-type']} drap-id={node.nodeId} label-width={140} label="item-label">
-            <Input  {...node.props}></Input>
-        </FormItem>
+        <Input drag-type={node['drag-type']} drap-id={node.nodeId} {...node.props}></Input>
+        // <FormItem drag-type={node['drag-type']} drap-id={node.nodeId} label-width={140} label="item-label">
+        // </FormItem>
     )
 }

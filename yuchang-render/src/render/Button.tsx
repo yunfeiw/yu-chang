@@ -15,7 +15,5 @@ export default (props: any, ctx?: any) => {
 
     const { node } = props;
 
-    console.log('button props', node)
-
     return (<Button drag-type={node['drag-type']} drap-id={node.nodeId} {...node.props} >{node.text}</Button>)
 }

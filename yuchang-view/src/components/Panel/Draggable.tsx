@@ -61,7 +61,7 @@ export const Draggable = defineComponent({
      * @returns data
      */
     setup(props, ctx) {
-
+        // console.log('props.onDragstart',props.onDragstart)
         /** 声明事件名称 */
         const { handles } = useDrag({
             onDragstart: props.onDragstart,
@@ -74,7 +74,7 @@ export const Draggable = defineComponent({
                 ...handles,
                 draggable: true,
             });
-            console.log('封装 vNode', vNode)
+            // console.log('封装 vNode', vNode)
             return vNode
         }
 
